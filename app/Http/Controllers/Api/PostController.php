@@ -52,8 +52,6 @@ class PostController extends Controller
 
     public function update(PostEditRequest $request, Post $post)
     {
-        $this->authorize('author', $post);
-
         try {
             $post = DB::transaction(function () use($request, $post) {
 
@@ -81,8 +79,6 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        $this->authorize('author', $post);
-        
         $post->delete();
     }
 
