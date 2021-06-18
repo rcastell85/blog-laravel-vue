@@ -15,7 +15,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id', 'DESC')->paginate(6);
+        $posts = Post::where('status', 2)
+                    ->orderBy('id', 'DESC')
+                    ->paginate(6);
         return PostCollection::make($posts);
     }
 
