@@ -1,7 +1,7 @@
 <template>
 
     <div class="container">
-        <div>
+        <div v-if="posts.length > 0">
             <post-modal-component 
                 :class="{showModal: showModal}"
                 @close-modal="closeModal()"
@@ -17,7 +17,7 @@
             
             <pagination class="paginate" :data="posts" @pagination-change-page="list"></pagination>
         </div>
-        <div>
+        <div v-else> 
             Bienvenido a nuestro blog!
         </div>
     </div>

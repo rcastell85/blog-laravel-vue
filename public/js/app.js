@@ -44280,52 +44280,52 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      [
-        _c("post-modal-component", {
-          class: { showModal: _vm.showModal },
-          attrs: { post: _vm.postToShow },
-          on: {
-            "close-modal": function($event) {
-              return _vm.closeModal()
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c(
+    _vm.posts.length > 0
+      ? _c(
           "div",
-          { staticClass: "row" },
-          _vm._l(_vm.posts.data, function(post) {
-            return _c(
+          [
+            _c("post-modal-component", {
+              class: { showModal: _vm.showModal },
+              attrs: { post: _vm.postToShow },
+              on: {
+                "close-modal": function($event) {
+                  return _vm.closeModal()
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
               "div",
-              { key: post.id, staticClass: "col-md-6" },
-              [
-                _c("post-component", {
-                  attrs: { post: post },
-                  on: {
-                    "open-modal": function($event) {
-                      return _vm.openModal(post)
-                    }
-                  }
-                })
-              ],
-              1
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("pagination", {
-          staticClass: "paginate",
-          attrs: { data: _vm.posts },
-          on: { "pagination-change-page": _vm.list }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", [_vm._v("\n        Bienvenido a nuestro blog!\n    ")])
+              { staticClass: "row" },
+              _vm._l(_vm.posts.data, function(post) {
+                return _c(
+                  "div",
+                  { key: post.id, staticClass: "col-md-6" },
+                  [
+                    _c("post-component", {
+                      attrs: { post: post },
+                      on: {
+                        "open-modal": function($event) {
+                          return _vm.openModal(post)
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("pagination", {
+              staticClass: "paginate",
+              attrs: { data: _vm.posts },
+              on: { "pagination-change-page": _vm.list }
+            })
+          ],
+          1
+        )
+      : _c("div", [_vm._v(" \n        Bienvenido a nuestro blog!\n    ")])
   ])
 }
 var staticRenderFns = []
