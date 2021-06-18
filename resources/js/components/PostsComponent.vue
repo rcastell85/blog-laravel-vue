@@ -1,25 +1,20 @@
 <template>
 
     <div class="container">
-        <div v-if="posts.length > 0">
-            <post-modal-component 
-                :class="{showModal: showModal}"
-                @close-modal="closeModal()"
-                :post="postToShow"
-            >
-            </post-modal-component>
+        <post-modal-component 
+            :class="{showModal: showModal}"
+            @close-modal="closeModal()"
+            :post="postToShow"
+        >
+        </post-modal-component>
 
-            <div class="row">
-                <div class="col-md-6" v-for="post in posts.data" :key="post.id">
-                    <post-component :post="post" @open-modal="openModal(post)"></post-component>
-                </div>
+        <div class="row">
+            <div class="col-md-6" v-for="post in posts.data" :key="post.id">
+                <post-component :post="post" @open-modal="openModal(post)"></post-component>
             </div>
-            
-            <pagination class="paginate" :data="posts" @pagination-change-page="list"></pagination>
         </div>
-        <div v-else> 
-            Bienvenido a nuestro blog!
-        </div>
+        
+        <pagination class="paginate" :data="posts" @pagination-change-page="list"></pagination>
     </div>
 
     
