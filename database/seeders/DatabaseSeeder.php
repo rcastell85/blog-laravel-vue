@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('posts');
         
         $this->call(UserSeeder::class);
-        $this->call(PostSeeder::class);
+       // $this->call(PostSeeder::class);
     }
 }
